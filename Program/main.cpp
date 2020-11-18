@@ -8,9 +8,11 @@ double p(const double& x) {
 	if (abs(x) >= 1)
 		return (pow(cos(x), 2) - sin(x)) / exp(sin(x));
 
-	double sum = 1;
-	for (int j = 0; j <= 4; j++)
-		sum *= -x / (j + 1.);
+	double a = 1, sum = a;
+	for (int j = 1; j <= 4; j++) {
+		a *= -x / (j + 1.);
+		sum += a;
+	}
 	return 1 / cos(x) * sum;
 }
 
