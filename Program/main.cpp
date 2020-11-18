@@ -4,18 +4,13 @@
 #include <cmath>
 using namespace std;
 
-int factorial(const int& i) {
-	return i == 1 || i == 0 ? 1 : i * factorial(i - 1);
-}
-
-double p(const double &x) {
+double p(const double& x) {
 	if (abs(x) >= 1)
-		return(pow(cos(x), 2) - sin(x)) / exp(sin(x));
-	
-	double sum = 0;
-	for (int j = 0; j <= 4; j++)
-		sum += pow(-1, j) * x / 2 * factorial(j);
+		return (pow(cos(x), 2) - sin(x)) / exp(sin(x));
 
+	double sum = 1;
+	for (int j = 0; j <= 4; j++)
+		sum *= -x / (j + 1.);
 	return 1 / cos(x) * sum;
 }
 
